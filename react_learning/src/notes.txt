@@ -1,0 +1,2 @@
+rfce - to auto complete function
+shift alt F - format document
