@@ -19,6 +19,7 @@ function App() {
 //use redux thunk as middleware
 //use constant for actions, do not hardcode actions name
 //create different folder for actions/reducer/store
+//New branch is created !! reduxStore
 
   const [records, setRecords] = useState([]);
   const [url, seturl] = useState(null);
