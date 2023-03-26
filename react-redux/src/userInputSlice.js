@@ -7,15 +7,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const userInputSlice = createSlice({
   name: "userInput",
   initialState: {
-    permUrl: ''
+    tempUrl:'',
+    permUrl: '',
   },
   reducers: {
-    getPermUrl: (state,action ) => {
-      state.permUrl = action.payload;
+    getTempUrl: (state,action ) => {
+        state.tempUrl = action.payload;
+      },  
+    getPermUrl: (state ) => {
+      state.permUrl = state.tempUrl;
     },    
 },
 
 });
 
 export default userInputSlice.reducer;
-export const { getPermUrl } = userInputSlice.actions;
+export const {getTempUrl, getPermUrl } = userInputSlice.actions;
