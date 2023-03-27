@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTempUrl,getPermUrl } from "./Reducer/userInputSlice";
+import { getTempUrl, getPermUrl } from "./Reducer/userInputSlice";
 import UserDataView from "./Action/userDataView";
 import "./App.css";
 
-
-
 function App() {
+  const [number, setnumber] = useState(1);
 
+  const onchange = (e) => {
+    setnumber(Number(e.target.value));
+  };
 
-  // const [tmpurl, settmpurl] = useState("https://jsonplaceholder.typicode.com/users");
- 
-  const url = useSelector((state)=> state.userInput.permUrl)
-  const dispatch = useDispatch()
+  const factorial=useMemo(()=>factotialof(number),[number]);
 
   return (
     <div className="App">
-      <input placeholder="Please Enter URL to GET Data"  onChange={(event) => dispatch(getTempUrl(event.target.value))} ></input>
-      <button onClick={() => dispatch(getPermUrl())}>Submit</button>
-      <h1>User Link : {url}</h1>
-      <UserDataView/>
-      
+      factorial of
+      <input value={number} onChange={onchange}/>
+      is {factorial}
     </div>
   );
 }
 
 export default App;
+
+function factotialof(n) {
+  return n <= 0 ? 1 : n * factotialof(n - 1);
+}
