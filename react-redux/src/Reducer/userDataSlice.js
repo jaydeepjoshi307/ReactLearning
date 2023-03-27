@@ -8,8 +8,8 @@ import axios from "axios";
 
 
 export const fetchUsers = createAsyncThunk("userData/fetchUsers", () => {
-    const url = 'https://jsonplaceholder.typicode.com/users';
-    // const url = useSelector((state) => state.userInput.permUrl); 
+  const url = 'https://jsonplaceholder.typicode.com/users';
+   // const url = useSelector((state) => state.userInput.permUrl); 
 // // console.log("URL FROM USER DATA SLICE: ", url);
  return axios.get(url).then((response) => response.data);
 });
