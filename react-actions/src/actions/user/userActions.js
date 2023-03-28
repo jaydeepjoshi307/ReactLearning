@@ -21,10 +21,10 @@ export const fetchUsersFailure = error => {
     }
 }
 
-export const fetchUsers = () => {
+export const fetchUsers = (url) => {
     return (dispatch) => {
         dispatch(fetchUsersRequest)
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get(url)
         .then(response => {
             const users = response.data
             dispatch(fetchUsersSuccess(users))
